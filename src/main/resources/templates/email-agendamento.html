@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Agendamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2c5aa0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+        }
+        .info-box {
+            background-color: white;
+            border-left: 4px solid #2c5aa0;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .highlight {
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏥 Clínica Médica</h1>
+        <h2>Confirmação de Agendamento</h2>
+    </div>
+    
+    <div class="content">
+        <p>Olá <span class="highlight" th:text="${paciente.nome}">Nome do Paciente</span>,</p>
+        
+        <p>Sua consulta foi agendada com sucesso! Abaixo estão os detalhes:</p>
+        
+        <div class="info-box">
+            <h3>📅 Detalhes da Consulta</h3>
+            <p><strong>Data:</strong> <span th:text="${dataFormatada}">DD/MM/AAAA</span></p>
+            <p><strong>Horário:</strong> <span th:text="${horaFormatada}">HH:MM</span></p>
+            <p><strong>Médico:</strong> <span th:text="${medico.nome}">Nome do Médico</span></p>
+            <p><strong>Especialidade:</strong> <span th:text="${medico.especialidade}">Especialidade</span></p>
+        </div>
+        
+        <div class="info-box">
+            <h3>👤 Seus Dados</h3>
+            <p><strong>Nome:</strong> <span th:text="${paciente.nome}">Nome do Paciente</span></p>
+            <p><strong>Email:</strong> <span th:text="${paciente.email}">email@exemplo.com</span></p>
+            <p><strong>Telefone:</strong> <span th:text="${paciente.telefone}">(XX) XXXXX-XXXX</span></p>
+        </div>
+        
+        <div class="info-box">
+            <h3>📍 Local da Consulta</h3>
+            <p><strong>Endereço:</strong> <span th:text="${medico.endereco.logradouro}">Rua, Número</span></p>
+            <p><strong>Bairro:</strong> <span th:text="${medico.endereco.bairro}">Bairro</span></p>
+            <p><strong>Cidade:</strong> <span th:text="${medico.endereco.cidade}">Cidade</span> - <span th:text="${medico.endereco.uf}">UF</span></p>
+        </div>
+        
+        <p><strong>Importante:</strong></p>
+        <ul>
+            <li>Chegue com 15 minutos de antecedência</li>
+            <li>Traga um documento de identificação</li>
+            <li>Em caso de dúvidas, entre em contato conosco</li>
+        </ul>
+        
+        <p>Esperamos vê-lo em breve!</p>
+        
+        <p>Atenciosamente,<br>Equipe da Clínica Médica</p>
+    </div>
+    
+    <div class="footer">
+        <p>Este é um email automático. Por favor, não responda a esta mensagem.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelamento de Consulta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #dc3545;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+        }
+        .info-box {
+            background-color: white;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .highlight {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏥 Clínica Médica</h1>
+        <h2>Cancelamento de Consulta</h2>
+    </div>
+    
+    <div class="content">
+        <p>Olá <span class="highlight" th:text="${paciente.nome}">Nome do Paciente</span>,</p>
+        
+        <p>Sua consulta foi cancelada. Abaixo estão os detalhes:</p>
+        
+        <div class="info-box">
+            <h3>❌ Consulta Cancelada</h3>
+            <p><strong>Data:</strong> <span th:text="${dataFormatada}">DD/MM/AAAA</span></p>
+            <p><strong>Horário:</strong> <span th:text="${horaFormatada}">HH:MM</span></p>
+            <p><strong>Médico:</strong> <span th:text="${medico.nome}">Nome do Médico</span></p>
+            <p><strong>Especialidade:</strong> <span th:text="${medico.especialidade}">Especialidade</span></p>
+        </div>
+        
+        <div class="info-box">
+            <h3>📝 Motivo do Cancelamento</h3>
+            <p><span th:text="${motivo}">Motivo do cancelamento</span></p>
+        </div>
+        
+        <div class="info-box">
+            <h3>🔄 Próximos Passos</h3>
+            <p>Se você deseja reagendar sua consulta, entre em contato conosco:</p>
+            <ul>
+                <li>Telefone: (XX) XXXX-XXXX</li>
+                <li>Email: contato@clinica.com</li>
+                <li>Ou acesse nosso sistema online</li>
+            </ul>
+        </div>
+        
+        <p>Lamentamos qualquer inconveniente causado.</p>
+        
+        <p>Atenciosamente,<br>Equipe da Clínica Médica</p>
+    </div>
+    
+    <div class="footer">
+        <p>Este é um email automático. Por favor, não responda a esta mensagem.</p>
+    </div>
+</body>
+</html>
