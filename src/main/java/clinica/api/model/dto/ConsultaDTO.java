@@ -21,6 +21,7 @@ public class ConsultaDTO {
     private LocalDateTime data;
     private MotivoCancelamento motivoCancelamento;
     private String observacoes;
+    private boolean cancelada;
 
     public ConsultaDTO(Consulta consulta) {
         this.id = consulta.getId();
@@ -29,6 +30,7 @@ public class ConsultaDTO {
         this.data = consulta.getData();
         this.motivoCancelamento = consulta.getMotivoCancelamento();
         this.observacoes = consulta.getObservacoes();
+        this.cancelada = consulta.isCancelada();
     }
 
 

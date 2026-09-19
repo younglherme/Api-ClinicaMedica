@@ -61,7 +61,7 @@ public class ConsultaController {
             consultas = consultaRepository.findByPacienteIdAndDataBetween(dados.dataInicio(), dados.dataFim(),dados.idUsuario());
         }
         if(consultas.isEmpty()){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(List.of());
         }
 
         List<ListagemConsultaDTO> listagemConsultaDTOs = consultas.stream()

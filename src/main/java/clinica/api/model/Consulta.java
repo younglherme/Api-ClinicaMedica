@@ -1,6 +1,7 @@
 package clinica.api.model;
 
 import clinica.api.model.enums.MotivoCancelamento;
+import clinica.api.model.converter.MotivoCancelamentoConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,7 +31,7 @@ public class Consulta {
     private LocalDateTime data;
 
     @Column(name = "motivo_cancelamento")
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = MotivoCancelamentoConverter.class)
     private MotivoCancelamento motivoCancelamento;
 
     @Column(name = "observacoes_medicas")
@@ -39,8 +40,12 @@ public class Consulta {
     @Column(name = "convenio")
     private String convenio;
 
+    @Column(name = "cancelada", nullable = false)
+    private boolean cancelada = false;
+
     public void cancelar(MotivoCancelamento motivo) {
         this.motivoCancelamento = motivo;
+        this.cancelada = true;
     }
 
     public void inserirObservacao(String observacoes) {

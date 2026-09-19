@@ -37,6 +37,7 @@ public class Medico {
 
     private Boolean ativo;
 
+    @Column(name = "idusuario", nullable = false)
     private Long idusuario;
 
     public Medico(CadastroMedicoDTO dados, Long idUsuario) {
